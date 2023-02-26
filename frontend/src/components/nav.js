@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 function Nav() {
   let auth = localStorage.getItem("users")
   const navigate = useNavigate()
+
+  
   let logout = () => {
     localStorage.clear()
     navigate('/signUp')

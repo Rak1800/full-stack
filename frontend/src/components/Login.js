@@ -19,20 +19,20 @@ function Login() {
     result = await result.json()
     console.log(result, result.status)
     if (result.status === true) {
-      localStorage.setItem("users", JSON.stringify(result))
+      localStorage.setItem("users", JSON.stringify(result))    
       alert(`${result.message}`)
       navigate("/")
     } else {
-      alert("user not Found")
+      alert("user not Found")   
     }
   }
-  return (
+  return ( 
     <div>
       <form className='register'>
         <h1>Login</h1>
         <input className='inputbox' type='email' value={email} placeholder='Enter emiail'
           onChange={(e) => setEmail(e.target.value)} />
-        <input className='inputbox' type="password" value={pass} placeholder='Enter password'
+         <input className='inputbox' type="password" value={pass} placeholder='Enter password'
           onChange={(e) => setPass(e.target.value)} />
           <button className='forgot' type='button'>forgot password</button><br></br>
         <button className='btn' type='button' onClick={loginData} >Login</button>

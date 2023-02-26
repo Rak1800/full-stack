@@ -106,8 +106,13 @@
   display: inline-block;
   border: 1px solid orange;
   padding: 5px;
-  width: 75px;
+  width: 200px;
 
+}
+@media screen and  (max-width:900px){
+  .product-list ul li{
+  width: 100px;
+  }
 }
 .product-list ul{
   margin: 0;

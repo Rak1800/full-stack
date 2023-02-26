@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import axios from 'axios'
+ //import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function SignUp() {
@@ -25,7 +25,7 @@ export default function SignUp() {
     //     phone:phone,
     //     email:email,   
     //     password:pass
-    //   }).then(()=>navigate('/'))
+    //   }).then(()=>navigate('/login'))   
     //   .catch(err=>console.log(err))    
 
     // ====================use fetch method===========
@@ -43,9 +43,7 @@ export default function SignUp() {
     if (result) {
       alert(`${result.message}`)
       navigate('/login')
-    } else {
-
-    }
+    } 
   }
   return (
     <>

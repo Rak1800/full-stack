@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const objectId=mongoose.Schema.Types.ObjectId  
+const ObjectId=mongoose.Schema.Types.ObjectId  
 
 const productSchema=new mongoose.Schema({
    productName:{
@@ -15,7 +15,7 @@ const productSchema=new mongoose.Schema({
     require:true
    },
    userId:{ 
-   type:objectId,
+   type:ObjectId,
    ref:"User"
    },
    company:{

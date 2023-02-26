@@ -6,7 +6,7 @@ const  register=async function (req,res){
   let data=req.body
   let {name,phone,email,password}=data
 
-  let saveData=await userschema.create(data)
+  let saveData=await userschema.create(data) 
   saveData=saveData.toObject();
   delete saveData.password
   res.send({status:true,message:"Registration successful", data:saveData}) 
@@ -15,8 +15,9 @@ const login =async function (req,res){
     let data=req.body
     const {email,password}=data
     let checkdata=await userschema.findOne({email:email,password:password})
-
+    
     if(!checkdata) return res.send({status:false,message:"email and password is not available"})
+
     res.status(200).send({status:true,message:"login Successfull",data:checkdata})  
 }
 const getUser=async function(req,res){

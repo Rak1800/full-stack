@@ -13,7 +13,7 @@ app.use(cors())
 mongoose.set('strictQuery', true)
 mongoose.connect('mongodb+srv://Rak18000:Rakesh123@cluster0.xntrj.mongodb.net/full-stack',{
     useNewUrlParser:true
-}).then(()=>console.log('mongoDb is connected'))
+}).then(()=>console.log('mongoDb is connected')) 
 .catch(err=>console.log(err))
 
 app.use('/', route)

@@ -25,7 +25,7 @@ if(!pName || !price || !catogory || !company || !company){
         })
         result=await result.json()
         if(result){
-            alert(`${result.message}`)
+            alert(`${result.message}`) 
             navigate("/")
         }
       

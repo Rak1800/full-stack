@@ -13,23 +13,30 @@ const getProduct= async function(req,res){
    let data=await productModel.find({userId:userId})
    if(!data) res.send({data:[]})
    if(data.length>0){
-    res.send({status:true, message:"All product", data:data})
+    res.send({status:true, message:"All product", data:data}) 
    }else{
     return res.send({status:false,mesage:"not product found"})  
    }
 }
+const geproductId= async function(req,res){
+  let productId=req.params.productId
+  let checkproduct=await productModel.findOne({_id:productId})
+  if(!checkproduct) return res.send({status:false,mesaage:"no product "})  
+  return res.send({status:true,data:checkproduct})
 
-const updateProduct= async function(req,res){
+}
+
+const updateProduct= async function(req,res){  
   let productId=req.params.productId
   let checkproduct=await productModel.findOne({_id:productId})
   if(!checkproduct) return res.send({status:false,mesaage:"no product "})  
   let data=req.body
   const {productName,price,catogory}=data
-  let update= await productModel.findOneAndUpdate({_id:productId},{
+  let update= await productModel.findOneAndUpdate({_id:productId},{$set:{
     productName:productName,
     price:price,
     catogory:catogory
-  },{new:true})
+  }},{new:true})
   res.send({status:true, message:"product update successful"}) 
 }
 
@@ -42,4 +49,18 @@ res.send({status:true,message:'product deleted'})
 
 }
 
-module.exports={productAdd,getProduct,deleteProduct,updateProduct}
+const searchproduct= async(req,res)=>{
+  let key=req.params.key
+  let result=await productModel.find({
+    "$or":[
+      {productName:{$regex:key}},
+      {price:{$regex:key}},
+      {catogory:{$regex:key}},
+      {company:{$regex:key}},
+    ]
+     }) 
+     res.send({status:true,result}) 
+    } 
+
+
+module.exports={productAdd,getProduct,deleteProduct,updateProduct,geproductId,searchproduct}  

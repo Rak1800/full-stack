@@ -17,6 +17,6 @@ router.get("/products/:userId",getProduct)
 router.get("/product/:productId",geproductId) 
 router.put("/update/:productId",updateProduct)
 router.delete("/deleteProduct/:productId",deleteProduct) 
-router.get("/search/:key",searchproduct) 
+router.get("/search/:userId/:key",searchproduct) 
 
 module.exports=router   

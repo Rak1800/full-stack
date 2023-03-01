@@ -50,8 +50,9 @@ res.send({status:true,message:'product deleted'})
 }
 
 const searchproduct= async(req,res)=>{
+  let userId=req.params.userId
   let key=req.params.key
-  let result=await productModel.find({
+  let result=await productModel.find({userId:userId,
     "$or":[
       {productName:{$regex:key}},
       {price:{$regex:key}},

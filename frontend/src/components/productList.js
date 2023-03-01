@@ -34,7 +34,7 @@ function ProductList() {
     const searchproducts=async (e)=>{
         let key =e.target.value
         if(key){
-        let result=await fetch(`/search/${key}`)
+        let result=await fetch(`/search/${userId}/${key}`)
         result=await result.json()
         if(result){
             setProducts(result.result)
@@ -47,7 +47,7 @@ function ProductList() {
     <div className='product-list'> 
         
     <h1>product List</h1>
-    <input class  type="text"  placeholder='search product' onChange={searchproducts} />
+    <input className='search'  type="text"  placeholder='search product' onChange={searchproducts} />
     <ul>
         <li>S.no</li> 
         <li>P.Name</li>
@@ -56,7 +56,7 @@ function ProductList() {
         <li>Company</li>
         <li>Operation</li>
     </ul>
-    {products.length>0?
+    { products ?
        products.map((item,index)=>
         <ul key ={item._id}>
         <li>{index}</li>

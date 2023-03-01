@@ -109,13 +109,20 @@
   width: 200px;
 
 }
-@media screen and  (max-width:900px){
+@media screen and  (max-width:800px){
   .product-list ul li{
   width: 100px;
   }
 }
 .product-list ul{
   margin: 0;
+}
+.search{
+  width: 30%;
+  margin: 20px;
+  height: 30px;
+  border: 1px solid #61dafb;
+
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
